@@ -6,8 +6,8 @@ import sys
 app = Flask(__name__)
 
 manualDir = sys.argv[1]
-isDebug = sys.argv[2]
-port = sys.argv[3]
+isDebug = bool(sys.argv[2])
+port = int(sys.argv[3])
 
 
 @app.route('/<system>/<game>/manual', methods = ['GET'])
