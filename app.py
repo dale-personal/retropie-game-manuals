@@ -11,7 +11,7 @@ manualDir = sys.argv[1]
 def manual(system=None, game=None):
   subprocess.run(["wmctrl", "-c", "qpdfview"])
   pdfFile = manualDir + '/' + system + '/' + '/' + game + '.pdf'
-  result = subprocess.run([sys.executable, "qpdfview", "--quiet", pdfFile], capture_output=True)
+  result = subprocess.run(["qpdfview", "--quiet", pdfFile], capture_output=True)
   return pdfFile + ', returnCode=' + str(result.returncode)
 
 if __name__ == '__main__':
