@@ -1,1 +1,1 @@
-python3 app.py /media/pi/SANDISK250/manuals
+python3 /home/pi/retropie-game-manuals/app.py /media/pi/SANDISK250/manuals
