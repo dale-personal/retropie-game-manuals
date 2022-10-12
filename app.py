@@ -10,7 +10,7 @@ manualDir = sys.argv[1]
 @app.route('/<system>/<game>/manual', methods = ['GET'])
 def manual(system=None, game=None):
   subprocess.run(["wmctrl", "-c", "qpdfview"])
-  subprocess.run(["qpdfview", "--quiet", manualDir + '/' + system + '/' + '/' + game + '.pdf'])
+  result = subprocess.run(["qpdfview", "--quiet", manualDir + '/' + system + '/' + '/' + game + '.pdf'], capture_output=True)
   return 'Hello ' + system + ',' + game
 
 if __name__ == '__main__':
