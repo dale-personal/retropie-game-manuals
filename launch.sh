@@ -1,0 +1,1 @@
+python3 app.py /media/pi/SANDISK250/manuals
