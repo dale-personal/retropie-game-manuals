@@ -13,6 +13,7 @@ API for displaying game manuals in response to emulation station events.
 sudo apt update
 sudo apt install git
 sudo apt install wmctrl
+sudo apt install qpdfview
 sudo apt install python3 idle3
 python3 -m pip install Flask
 ```
