@@ -1,6 +1,6 @@
 from flask import Flask
 
-app = Flask()
+app = Flask(__name__)
 
 @app.route('/<system>/<game>/manual', methods = ['GET'])
 def manual(system=None, game=None):
