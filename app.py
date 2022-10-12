@@ -5,8 +5,8 @@ app = Flask(__name__)
 
 @app.route('/<system>/<game>/manual', methods = ['GET'])
 def manual(system=None, game=None):
-  subprocess.run(["wmctrl", "-c", "qpdfview"])
-  return 'Hello ' + system + ',' + game
+  result = subprocess.run(["wmctrl", "-c", "qpdfview"])
+  return 'Hello ' + system + ',' + game + ', stderr=' + result.stderr + ', stdout=' + result.stdout
 
 if __name__ == '__main__':
-    app.run(port=8000)
+    app.run(debug=True, port=8000)
