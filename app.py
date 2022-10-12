@@ -6,9 +6,6 @@ import sys
 app = Flask(__name__)
 
 manualDir = sys.argv[1]
-isDebug = bool(sys.argv[2])
-port = int(sys.argv[3])
-
 
 @app.route('/<system>/<game>/manual', methods = ['GET'])
 def manual(system=None, game=None):
@@ -17,4 +14,4 @@ def manual(system=None, game=None):
   return 'Hello ' + system + ',' + game
 
 if __name__ == '__main__':
-    app.run(debug=isDebug, port=port)
+    app.run(debug=True, port=8000, host='0.0.0.0')
