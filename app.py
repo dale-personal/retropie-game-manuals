@@ -18,7 +18,7 @@ def manual(system=None, game=None):
       dic[key] = file
 
   target = game.replace(' ', '').replace('(', '').replace(')', '').replace('.', '').replace('-', '').replace("'", '').lower() + 'pdf'
-  matches = difflib.get_close_matches(target, dic.keys, 1, 0.8)
+  matches = difflib.get_close_matches(target, dic.keys(), 1, 0.8)
   if len(matches) > 0 :
     pdfFile = manualDir + '/' + system + '/' + dic[matches[0]]
     subprocess.Popen(["qpdfview", "--quiet", pdfFile])
