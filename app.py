@@ -14,6 +14,14 @@ def manual(system=None, game=None):
   # Close the pdf viwer (does nothing if not running)
   subprocess.Popen(["wmctrl", "-c", "qpdfview"])
 
+  # All infocom games are in 4 pdfs
+  if system == "zmachine":
+    subprocess.Popen(["qpdfview", "--unique", "--quiet", manualDir + '/' + system + '/INFOCOM.PDF'])
+    subprocess.Popen(["qpdfview", "--unique", "--quiet", manualDir + '/' + system + '/MANUAL.PDF'])
+    subprocess.Popen(["qpdfview", "--unique", "--quiet", manualDir + '/' + system + '/MAP.PDF'])
+    subprocess.Popen(["qpdfview", "--unique", "--quiet", manualDir + '/' + system + '/HINTS.PDF'])
+    return 'Found ZMachine'
+
   # Build the dictionary of files to find find the best match.
   # A crude normalization of file name is used a key and used to perform the match.
   dic = {}
