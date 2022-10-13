@@ -14,22 +14,16 @@ def manual(system=None, game=None):
   # Close the pdf viwer (does nothing if not running)
   subprocess.Popen(["wmctrl", "-c", "qpdfview"])
 
-  # Special handing for scummvm games. all roms are launch.scummvm, and located
-  # in a game folder under the system folder.
-  if (game == 'launch'):
-    game = system
-    system = 'scummvm'
-
   # Build the dictionary of files to find find the best match.
   # A crude normalization of file name is used a key and used to perform the match.
   dic = {}
   for file in os.listdir(manualDir + '/' + system + '/'):
     if file.lower().endswith('.pdf'):
-      key = file.replace(' ', '').replace('(', '').replace(')', '').replace('.', '').replace('-', '').replace("'", '').lower()
+      key = file.replace(' ', '').replace('(', '').replace(')', '').replace('.', '').replace('-', '').replace("'", '').replace('\\', '').replace('/', '').lower()
       dic[key] = file
 
   # Perform the same crude normalization of the the target to match.
-  target = game.replace(' ', '').replace('(', '').replace(')', '').replace('.', '').replace('-', '').replace("'", '').lower() + 'pdf'
+  target = game.replace(' ', '').replace('(', '').replace(')', '').replace('.', '').replace('-', '').replace("'", '').replace('\\', '').replace('/', '').lower() + 'pdf'
   matches = difflib.get_close_matches(target, dic.keys(), 1, 0.8)
 
   # If a match was found, use it.
