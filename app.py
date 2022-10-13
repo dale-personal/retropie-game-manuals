@@ -18,7 +18,7 @@ def manual(system=None, game=None):
 
   target = game + '.pdf'
   matches = difflib.get_close_matches(target, possibilities, 1, 0.8)
-  if matches.count > 0 :
+  if matches.count() > 0 :
     pdfFile = manualDir + '/' + system + '/' + matches[0]
     subprocess.Popen(["qpdfview", "--quiet", pdfFile])
     return 'Found: ' + pdfFile
