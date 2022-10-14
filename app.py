@@ -23,11 +23,11 @@ def manual(system=None, game=None):
   dic = {}
   for file in os.listdir(manualDir + '/' + system + '/'):
     if file.lower().endswith('.pdf'):
-      key = file.replace(' ', '').replace('(', '').replace(')', '').replace('.', '').replace('-', '').replace("'", '').replace('\\', '').replace('/', '').lower()
+      key = file.replace(' ', '').replace('(', '').replace(')', '').replace('.', '').replace('-', '').replace("'", '').replace('\\', '').replace('/', '').replace('_', '').lower()
       dic[key] = file
 
   # Perform the same crude normalization of the the target to match.
-  target = game.replace(' ', '').replace('(', '').replace(')', '').replace('.', '').replace('-', '').replace("'", '').replace('\\', '').replace('/', '').lower() + 'pdf'
+  target = game.replace(' ', '').replace('(', '').replace(')', '').replace('.', '').replace('-', '').replace("'", '').replace('\\', '').replace('/', '').replace('_', '').lower() + 'pdf'
   matches = difflib.get_close_matches(target, dic.keys(), 1, 0.8)
 
   # If a match was found, use it.
