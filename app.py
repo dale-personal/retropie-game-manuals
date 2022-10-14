@@ -37,7 +37,7 @@ def manual(system=None, game=None):
     subprocess.Popen(["qpdfview", "--quiet", pdfFile])
 
     # wake up the display if it is asleep.
-    subprocess.Popen(["xset", "-display", ":0", "dpms", "force" "on"])
+    subprocess.Popen(["xset", "-display", ":0", "dpms", "force", "on"])
     return 'Found: ' + pdfFile
   else:
     return 'Not Found: ' + manualDir + '/' + system + '/' + target
