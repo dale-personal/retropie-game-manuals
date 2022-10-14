@@ -32,8 +32,12 @@ def manual(system=None, game=None):
 
   # If a match was found, use it.
   if len(matches) > 0 :
+    # open the matching pdf
     pdfFile = manualDir + '/' + system + '/' + dic[matches[0]]
     subprocess.Popen(["qpdfview", "--quiet", pdfFile])
+
+    # wake up the display if it is asleep.
+    subprocess.Popen(["xset", "-display", ":0", "dpms", "force" "on"])
     return 'Found: ' + pdfFile
   else:
     return 'Not Found: ' + manualDir + '/' + system + '/' + target
