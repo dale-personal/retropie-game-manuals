@@ -7,7 +7,8 @@ ROM=$(basename "$1")
 
 SCUMMVM='launch.scummvm'
 
-if [ $ROM == $SCUMMVM ]; then
+if [ $ROM == $SCUMMVM ]
+then
   ROMNAME="$CONSOLE"
   CONSOLE="scummvm"
 fi
